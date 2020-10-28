@@ -87,6 +87,24 @@ def print_message_adt(adt):
 
 def print_message_oru(oru):
 
+
+    print("\n\nSending application: " + oru[2] + "\n")
+    print("Sending Facility: " + oru[3] + "\n")
+    print("Receiving Application: " + oru[4] + "\n" )
+    print("Receiving Facility: " + oru[5] + "\n")
+    print("Data da mensagem: " + oru[6][0:4]+"/"+oru[6][4:6]+"/"+oru[6][6:8] + "\n")
+    print("Hora da mensagem: "+ oru[6][8:10] +"h"+ oru[6][10:12] +":"+ oru[6][12:14] + "s" +"\n")
+    print("Tipo de mensagem: " + oru[7] + "\n")
+    print("ID do controlo da mensagem: " + oru[8] + "\n")
+    print("ID de processamento: " + oru[9] + "\n")
+    print("Versão do ID: " + oru[10] + "\n")
+    print("TIpo de reconhecimento aceite: " + oru[11] + "\n")
+    
+
+
+
+
+
     #plot ECG
     ecg_data = oru[28].split("^")
 
@@ -95,6 +113,9 @@ def print_message_oru(oru):
     plt.plot(ecg_data)
     plt.title("Exame: ECG\n Paciente: Gromêncio Sardinha")
     plt.show()
+
+
+   
 
 
 
