@@ -91,12 +91,9 @@ def print_message_oru(oru):
     print("******************************* Servico Hospitalar " + adt[2] + " ********************************")
     print("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*.*.*.*")
 
-    print("Sending application: " + oru[2] )
-    print("Sending Facility: " + oru[3] )
-    print("Receiving Application: " + oru[4]  )
-    print("Receiving Facility: " + oru[5] )
-    print("Data da mensagem: " + oru[6][0:4]+"/"+oru[6][4:6]+"/"+oru[6][6:8] )
-    print("Hora da mensagem: "+ oru[6][8:10] +"h"+ oru[6][10:12] +":"+ oru[6][12:14] + "s" +"\n")
+
+    print("Data da mensagem: " + oru[2][0:4]+"/"+oru[2][4:6]+"/"+oru[2][6:8] )
+    print("Hora da mensagem: "+ oru[2][8:10] +"h"+ oru[2][10:12] +":"+ oru[2][12:14] + "s" +"\n")
     print("Tipo de mensagem: " + oru[7].replace("^", "_") )
     print("ID do controlo da mensagem: " + oru[8] )
     print("ID de processamento: " + oru[9] )
@@ -123,9 +120,6 @@ def print_message_oru(oru):
     print("Tipo de valor: " + oru[27])
     print("Identificador da observação: " + oru[28])
     print("Estado do resultado de observação: " + oru[30] + "\n")
-
-
-
 
 
     #plot ECG
