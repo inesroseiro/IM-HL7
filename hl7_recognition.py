@@ -115,20 +115,21 @@ def print_message_oru(oru):
     print("Identificador do serviço: " + oru[20] )
     print("Prioridade: " + oru[21] )
     print("Data da observação: " + oru[22][0:4]+"/"+oru[22][4:6]+"/"+oru[22][6:8] + "\t" + oru[22][8:10] +"h"+ oru[22][10:12] +":"+ oru[22][12:14] + "s")
-    print("Estado dos resultados: " + oru[23])
+    print("Informação clinica relevante: " + oru[23])
+    print("Estado dos resultados: " + oru[24])
 
     print("\n\n\t\tOBX"+"\n")
-    print("Id: " + oru[25])
-    print("Tipo de valor: " + oru[26])
-    print("Identificador da observação: " + oru[27] + "\n")
-    print("Estado do resultado de observação: " + oru[29] + "\n")
+    print("Id: " + oru[26])
+    print("Tipo de valor: " + oru[27])
+    print("Identificador da observação: " + oru[28])
+    print("Estado do resultado de observação: " + oru[30] + "\n")
 
 
 
 
 
     #plot ECG
-    ecg_data = oru[28].split("^")
+    ecg_data = oru[29].split("^")
 
     for i in range(len(ecg_data)):
         ecg_data[i] = float(ecg_data[i])
