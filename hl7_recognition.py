@@ -46,17 +46,17 @@ def print_message_adt(adt):
     print("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*.*.*.*")
     print("Data da mensagem: " + adt[4][0:4]+"/"+adt[4][4:6]+"/"+adt[4][6:8])
     print("Hora da mensagem: " + adt[4][8:10]+":"+adt[4][10:12])
-    print("Tipo da mensagem: " + adt[5] + "\n\n\t\tDados do paciente")
+    print("Tipo da mensagem: " + adt[5].replace("^", "_") + "\n\n\t\tDados do paciente")
     print("Id de controlo: " + adt[6])
     print("Data do registo: " + adt[11][0:4]+ "/"+adt[11][4:6]+ "/" + adt[11][6:8])
     print("Hora do registo: "+ adt[11][8:10] +"h"+ adt[11][10:12] +":"+ adt[11][12:14] + "s")
     print("Id do paciente: " + adt[13] )
     print("Numero interno: " + adt[14])
-    print("Nome do paciente: " + adt[15])
+    print("Nome do paciente: " + adt[15].replace("^"," "))
     print("Data e hora do nascimento: " + adt[16][0:4]+"/"+adt[16][4:6]+"/"+adt[16][6:8])
     print("Sexo: " + adt[17])
     print("Race: "+ adt[18]) # não tenho a certeza deste
-    print("Morada: " + adt[19])
+    print("Morada: " + adt[19].replace("^"," "))
     print("Pais: " + adt[20] )
     print("Número de telemovel: " + adt[21])
     print("Primary language: " + adt[22])
@@ -64,9 +64,9 @@ def print_message_adt(adt):
     print("Telefone de casa: " + adt[24][0:9])
     print("E-mail: " + adt[24][10:29] + "\n")
     print("\n\t\t\t" + "Contacto de emergencia:\n")
-    print("Nome: " + adt[27])
+    print("Nome: " + adt[27].replace("^"," "))
     print("Relação com o paciente: " + adt[28])
-    print("Morada: " + adt[29])
+    print("Morada: " + adt[29].replace("^"," "))
     print("Número de telemovel: " + adt[30])
     print("Contact rule: " + adt[31])
     print("Estado civil: " + adt[32])
@@ -78,7 +78,7 @@ def print_message_adt(adt):
     print("Código de diagnóstico: " + adt[42])
     print("Descrição do diagnóstico: " + adt[43])
     print("Tipo de diagnóstico: " + adt[44])
-    print("Médico de diagnóstico: " + adt[45])
+    print("Médico de diagnóstico: " + adt[45].replace("^"," "))
     print("Clasificação do diagnóstico: " + adt[46])
     print("Código de ação de diagnóstico: " + adt[47])
     print("Diagnóstico parental: " + adt[48])
@@ -87,22 +87,28 @@ def print_message_adt(adt):
 
 def print_message_oru(oru):
 
+    print("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*.*.*.*")
+    print("******************************* Servico Hospitalar " + adt[2] + " ********************************")
+    print("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*.*.*.*")
 
-    print("\n\nSending application: " + oru[2] )
+    print("Sending application: " + oru[2] )
     print("Sending Facility: " + oru[3] )
     print("Receiving Application: " + oru[4]  )
     print("Receiving Facility: " + oru[5] )
     print("Data da mensagem: " + oru[6][0:4]+"/"+oru[6][4:6]+"/"+oru[6][6:8] )
     print("Hora da mensagem: "+ oru[6][8:10] +"h"+ oru[6][10:12] +":"+ oru[6][12:14] + "s" +"\n")
-    print("Tipo de mensagem: " + oru[7] )
+    print("Tipo de mensagem: " + oru[7].replace("^", "_") )
     print("ID do controlo da mensagem: " + oru[8] )
     print("ID de processamento: " + oru[9] )
     print("Versão do ID: " + oru[10] )
     print("Tipo de reconhecimento aceite: " + oru[11] )
+
     #falta um
-    print("ID: " + oru[14] )
+    print("\n\n\t\tPaciente")
+
+    print("\nID : " + oru[14] )
     print("Identificador do paciente: " + oru[15])
-    print("Nome do paciente: " + oru[16] )
+    print("Nome do paciente: " + oru[16].replace("^"," ") )
     print("\n\n\t\tOBR")
     print("Id: " + oru[18] )
     print("Filler order number: " + oru[19] )
@@ -115,6 +121,7 @@ def print_message_oru(oru):
     print("Id: " + oru[25])
     print("Tipo de valor: " + oru[26])
     print("Identificador da observação: " + oru[27] + "\n")
+    print("Estado do resultado de observação: " + oru[29] + "\n")
 
 
 
