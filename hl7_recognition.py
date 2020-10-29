@@ -31,12 +31,22 @@ def validate_message(message):
     if message[7] == 'ORU^R01' :
         # segmentos obrigatorios MSH OBR
         if "MSH" and "OBX" in message:
-            print("Message ORY_R01 validated")
+            i1 = message.index("MSH")
+            i2 = message.index("OBX")
+            
+            if (i1< i2):
+                print("Message ORU_R01 validated")
+            
     
     elif message[5] == 'ADT^A01' :
         # segmentos obrigatorios MSH EVN PID PV1
         if "MSH" and "EVN" and "PID" and "PV1" in message:
-            print("Message ADT_A01 validated")
+            i1 = message.index("MSH")
+            i2 = message.index("EVN")
+            i3 = message.index("PID")
+            i4 = message.index("PV1")
+            if i1<i2 and i2<i3 and i3<i4:
+                print("Message ADT_A01 validated")
 
 
 
@@ -50,7 +60,7 @@ def print_message_adt(adt):
     print("Id de controlo: " + adt[6])
     print("Data do registo: " + adt[11][0:4]+ "/"+adt[11][4:6]+ "/" + adt[11][6:8])
     print("Hora do registo: "+ adt[11][8:10] +"h"+ adt[11][10:12] +":"+ adt[11][12:14] + "s")
-    print("Id do paciente: " + adt[13] )
+    print("Id interno do paciente: " + adt[13] )
     print("Numero interno: " + adt[14])
     print("Nome do paciente: " + adt[15].replace("^"," "))
     print("Data e hora do nascimento: " + adt[16][0:4]+"/"+adt[16][4:6]+"/"+adt[16][6:8])
@@ -81,8 +91,8 @@ def print_message_adt(adt):
     print("Médico de diagnóstico: " + adt[45].replace("^"," "))
     print("Clasificação do diagnóstico: " + adt[46])
     print("Código de ação de diagnóstico: " + adt[47])
-    print("Diagnóstico parental: " + adt[48])
-    print("Código de valor Drg Ccl: " + adt[49] + "\n")
+    print("Sintomas: " + adt[48])
+    print(adt[49] + "\n")
 
 
 def print_message_oru(oru):
@@ -90,10 +100,16 @@ def print_message_oru(oru):
     print("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*.*.*.*")
     print("******************************* Servico Hospitalar " + adt[2] + " ********************************")
     print("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*..*.*.*.*.*.*.*.*.*.*.*.*.*.*.*")
+    print("Sending Application: " + oru[2] )
+    print("Sending Facility: " + oru[3] )
+    print("Receiving Application: " + oru[4] )    
+    print("Receiving Facility: " + oru[5] )
 
 
-    print("Data da mensagem: " + oru[2][0:4]+"/"+oru[2][4:6]+"/"+oru[2][6:8] )
-    print("Hora da mensagem: "+ oru[2][8:10] +"h"+ oru[2][10:12] +":"+ oru[2][12:14] + "s" +"\n")
+
+
+    print("\nData da mensagem: " + oru[6][0:4]+"/"+oru[6][4:6]+"/"+oru[6][6:8] )
+    print("Hora da mensagem: "+ oru[6][8:10] +"h"+ oru[6][10:12] +":"+ oru[6][12:14] + "s" +"\n")
     print("Tipo de mensagem: " + oru[7].replace("^", "_") )
     print("ID do controlo da mensagem: " + oru[8] )
     print("ID de processamento: " + oru[9] )
@@ -103,27 +119,27 @@ def print_message_oru(oru):
     #falta um
     print("\n\n\t\tPaciente")
 
-    print("\nID : " + oru[14] )
-    print("Identificador do paciente: " + oru[15])
-    print("Nome do paciente: " + oru[16].replace("^"," ") )
+    print("\nID : " + oru[12] )
+    print("Identificador interno do paciente: " + oru[13])
+    print("Nome do paciente: " + oru[14].replace("^"," ") )
     print("\n\n\t\tOBR")
-    print("Id: " + oru[18] )
-    print("Filler order number: " + oru[19] )
-    print("Identificador do serviço: " + oru[20] )
-    print("Prioridade: " + oru[21] )
-    print("Data da observação: " + oru[22][0:4]+"/"+oru[22][4:6]+"/"+oru[22][6:8] + "\t" + oru[22][8:10] +"h"+ oru[22][10:12] +":"+ oru[22][12:14] + "s")
-    print("Informação clinica relevante: " + oru[23])
-    print("Estado dos resultados: " + oru[24])
+    print("Id: " + oru[16] )
+    print("Filler order number: " + oru[17] )
+    print("Identificador do serviço: " + oru[18] )
+    print("Prioridade: " + oru[19] )
+    print("Data da observação: " + oru[20][0:4]+"/"+oru[20][4:6]+"/"+oru[20][6:8] + "\t" + oru[20][8:10] +"h"+ oru[20][10:12] +":"+ oru[20][12:14] + "s")
+    print("Informação clinica relevante: " + oru[21])
+    print("Estado dos resultados: " + oru[22])
 
     print("\n\n\t\tOBX"+"\n")
-    print("Id: " + oru[26])
-    print("Tipo de valor: " + oru[27])
-    print("Identificador da observação: " + oru[28])
-    print("Estado do resultado de observação: " + oru[30] + "\n")
+    print("Id: " + oru[24])
+    print("Tipo de valor: " + oru[25])
+    print("Identificador da observação: " + oru[26])
+    print("Estado do resultado de observação: " + oru[28] + "\n")
 
 
     #plot ECG
-    ecg_data = oru[29].split("^")
+    ecg_data = oru[27].split("^")
 
     for i in range(len(ecg_data)):
         ecg_data[i] = float(ecg_data[i])
@@ -148,11 +164,10 @@ if __name__ == "__main__":
     validate_message(oru)
     validate_message(adt)
 
-    print_message_adt(adt)
     #print(adt)
     print("\n")
-    #print(oru)
+    print(oru)
 
    
-
+    print_message_adt(adt)
     print_message_oru(oru)
