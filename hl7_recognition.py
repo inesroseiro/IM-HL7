@@ -63,7 +63,7 @@ def print_message_adt(adt):
     print("Id interno do paciente: " + adt[13] )
     print("Numero interno: " + adt[14])
     print("Nome do paciente: " + adt[15].replace("^"," "))
-    print("Data e hora do nascimento: " + adt[16][0:4]+"/"+adt[16][4:6]+"/"+adt[16][6:8])
+    print("Data e hora de nascimento: " + adt[16][0:4]+"/"+adt[16][4:6]+"/"+adt[16][6:8])
     print("Sexo: " + adt[17])
     print("Race: "+ adt[18]) # não tenho a certeza deste
     print("Morada: " + adt[19].replace("^"," "))
@@ -81,7 +81,7 @@ def print_message_adt(adt):
     print("Contact rule: " + adt[31])
     print("Estado civil: " + adt[32])
     print("Sexo: " + adt[33])
-    print("Dia de aniversário: " + adt[34][0:4]+ "/"+adt[34][4:6]+ "/" + adt[34][6:8])
+    print("Data de nascimento: " + adt[34][0:4]+ "/"+adt[34][4:6]+ "/" + adt[34][6:8])
     print("Linguagem: " + adt[35])
     print("\n\n\n" + "Classe do paciente: " + adt[38])
     print("Método de codificação de diagnóstico: " + adt[41])
